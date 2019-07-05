@@ -1,0 +1,90 @@
+/*-----------------이미지 슬라이딩 퍼즐 css----------------*/
+/* -- body -- */
+body	{
+    background-color: #fff;
+    color: #333436;
+    font-size: 13px;
+    width: 100vw;
+    margin: 0;
+}
+
+#content {
+    border: 5px ridge wheat;
+    width:520px;
+    height:385px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:15px;
+}
+
+p {
+    color: #999;
+    font-size: 12pt;
+    margin-top: 15px;
+    margin-left:80px;
+    width:520px;
+}
+
+#submitBtn{
+    background-color : lightgoldenrodyellow;
+    border : 3px outset lightgoldenrodyellow;
+    /* ▼ 버튼 클릭 시 테두리 제거 */
+    outline:0;
+}
+
+#submitBtn:active{
+    border : 3px inset lightgoldenrodyellow;
+}
+
+/*-------------------- 이미지 슬라이딩 퍼즐 css 끝----------------*/
+
+/* -----------------------탭 메뉴 구현 css----------------------- */
+
+.container{
+    width: 800px;
+    height: 650px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+ul.tabs{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    width:720px;
+}
+ul.tabs li{
+    background: none;
+    color: #222;
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+ul.tabs li.current{
+    background: #ededed;
+    color: #222;
+}
+
+.tab-content{
+    display: none;
+    background: #ededed;
+    padding: 5px 5px 5px 20px;
+    height:90px;
+    width:695px;
+}
+
+.tab-content.current{
+    display: inherit;
+}
+
+#iframe{
+    border:10px ridge wheat;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#puzzle{
+    padding:0px 0px 0px 60px;
+}
+/*------ 탭 메뉴와 함께 퍼즐 (개발 중 구분용 <수정 필수>) css 끝 ------*/

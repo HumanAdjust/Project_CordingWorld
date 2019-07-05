@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+	<title>코딩에 게임을 더하다!</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="css/puzzle.css" media="all" type="text/css" />
+	<!-- 필요 js 파일 Loading -->
+	<script src="Javascript/tool.js" type="text/javascript"></script>
+	<script src="Javascript/puzzlegame.js" type="text/javascript"></script>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('ul.tabs li').click(function(){
+				var tab_id = $(this).attr('data-tab');
+
+				$('ul.tabs li').removeClass('current');
+				$('.tab-content').removeClass('current');
+
+				$(this).addClass('current');
+				$("#"+tab_id).addClass('current');
+				$("#iframe").attr('src', $("#"+tab_id).attr('data-url'));
+			});
+		});
+	</script>
+</head>
+<body>
+	<!-- 게임 구성 화면 구현 with tab menu -->
+	<div class="container">
+		<ul class="tabs">
+			<li class="tab-link current" data-tab="tab-1">Question 1</li>
+			<li class="tab-link" data-tab="tab-2">Question 2</li>
+			<li class="tab-link" data-tab="tab-3">Question 3</li>
+			<li class="tab-link" data-tab="tab-4">Question 4</li>
+			<li class="tab-link" data-tab="tab-5">Question 5</li>
+		</ul>
+		<iframe id="iframe" src="puzzleQ/TQ1.html" frameborder="0" width="700" height="500"></iframe>
+		<div id="tab-1" data-url="puzzleQ/TQ1.html" class="tab-content current">
+			<h3>1번 문제입니다!</h3>
+			<form method="POST">
+				정답 : <input id="submitAns1" type="text" name="정답란" placeholder="정답 입력란">
+				<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ1_check()">
+			</form>
+		</div>
+		<div id="tab-2" data-url="puzzleQ/TQ2.html" class="tab-content">
+			<h3>2번 문제입니다!</h3>
+			<form method="POST">
+				정답 : <input id="submitAns2" type="text" name="정답란" placeholder="정답 입력란">
+				<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ2_check()">
+			</form>		
+		</div>
+		<div id="tab-3" data-url="puzzleQ/TQ3.html" class="tab-content">
+			<h3>3번 문제입니다!</h3>
+			<form method="POST">
+				정답 : <input id="submitAns3" type="text" name="정답란" placeholder="정답 입력란">
+				<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ3_check()">
+			</form>
+		</div>
+		<div id="tab-4" data-url="puzzleQ/TQ4.html" class="tab-content">
+			<h3>4번 문제입니다!</h3>
+			<form method="POST">
+				정답 : <input id="submitAns4" type="text" name="정답란" placeholder="정답 입력란">
+				<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ4_check()">
+			</form>
+		</div>
+		<div id="tab-5" data-url="puzzleQ/TQ5.html" class="tab-content">
+			<h3>5번 문제입니다!</h3>
+			<form method="POST">
+				정답 : <input id="submitAns5" type="text" name="정답란" placeholder="정답 입력란">
+				<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ5_check()">
+			</form>
+		</div>
+	</div><!-- container -->
+
+	<a href="/">home</a>
+</body>
+</html>

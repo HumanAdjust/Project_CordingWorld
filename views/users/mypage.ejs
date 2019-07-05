@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>코딩 월드::내 정보</title>
+</head>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#upload_file").on('change', function(){
+                readURL(this);
+            });
+        });
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
+ 
+            reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+              reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+<body>
+    <center>
+        <h1><%= name %></h1>
+
+        <div>
+            <img id="blah" width="279" height="279" />
+        </div>
+        <div>
+            <input type='file' id="upload_file" name="upload_file" />
+        </div>
+        
+    </center>
+</body>
+</html>

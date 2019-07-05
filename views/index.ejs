@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <link rel="stylesheet" href="css/index.css" media="screen" type="text/css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to Coding World!</title>
+</head>
+
+<body>
+    <center>
+        <div class="modal"> 
+            <div class="modal-content">
+                <span class="close-button">&times;</span> 
+                <form action="/user/login" method="POST">
+                    <h1>로그인</h1><br>
+                    <form>
+                        <input type="text" name="user" placeholder="아이디">
+                        <input type="password" name="pass" placeholder="비밀번호">
+                        <input type="submit" name="login" id="login-submit" value="로그인">
+                    </form>
+        
+                    <div class="login-help">
+                        <!-- <a href="/user/signup" id="signupLink">회원 가입</a>    •    <a href="./user/findpw" id="findpwLink">비밀번호 찾기</a> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal_1"> 
+            <div class="modal-content_1">
+                <span class="close-button_1">&times;</span>
+                <form action="/user/adduser" method="POST">
+                    <h1>회원가입</h1><br>
+                    <form>
+                        <input type="text" name="user" placeholder="아이디">
+                        <input type="password" name="pass" placeholder="비밀번호">
+                        <input type="password" name="pass_correct" placeholder="비밀번호 확인">
+                        <input type="text" name="name" placeholder="닉네임">
+                        <input type="submit" name="login" class="login login-submit" value="회원가입">
+                    </form>
+                    <div class="login-help">
+                        <!-- <a href="/user" id="loginLink">로그인</a>    •    <a href="./user/findpw" id="findpwLink">비밀번호 찾기</a> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+        <ul class="banner">
+            <li class="text" id="mypage"><a href="/mypage">MyPage</a></li>
+            <li class="text" id="puzzle"><a href="/game">PuzzleGame</a></li>
+            <li class="text" id="lecture"><a href="/lecture">Lecture</a></li>
+            <li class="text" id="log">
+                <% if(islogin == 'login'){ %>
+                    <a href="./user/logout">Log Out</a>
+                    <!-- <input type="button" class="buttons buttons-submit" value="Log Out" onclick="location.href='./user/logout'"> -->
+                <% } else { %>
+                    <!-- <input type="button" class="trigger" value="Log In" onclick="" style="border:0; background:0;outline:0;"> -->
+                    <a class="trigger">Log In</a>
+                <% } %>
+            </li>
+            <li class="text", id="signup"><a class="trigger_1">Sign Up</a></li>
+        </ul>
+        <p id="intro">
+            <h2 style="font-size:60pt;"><span id="coding">Coding</span> World</h2>
+            <h4 style="font-size:30pt;">The easiest way Learning <span id="coding">Coding</span>.</h4>
+        </p>
+        <img id="bgImg" src="images/coding1.jpg" alt="">
+    </center>
+    <script>
+        // 로그인 폼 레이어 팝업 js
+        var modal = document.querySelector(".modal"); 
+        var trigger = document.querySelector(".trigger"); 
+        var closeButton = document.querySelector(".close-button"); 
+
+        console.log(modal);
+
+        function toggleModal() { 
+            modal.classList.toggle("show-modal"); 
+        }
+
+        function windowOnClick(event) { 
+            if (event.target === modal) { 
+                toggleModal(); 
+            }
+        }
+        trigger.addEventListener("click", toggleModal); 
+        closeButton.addEventListener("click", toggleModal); 
+        window.addEventListener("click", windowOnClick);
+        //로그인 폼 레이어팝업 js 끝
+
+        /* 회원가입 폼 레이어팝업 js */
+        var modal1 = document.querySelector(".modal_1");
+        var trigger1 = document.querySelector(".trigger_1"); 
+        var closeButton1 = document.querySelector(".close-button_1"); 
+
+        console.log(modal1);
+
+        function toggleModal_1() {
+            modal1.classList.toggle("show-modal"); 
+        }
+
+        function windowOnClick_1(event) { 
+            if (event.target === modal1) {
+                toggleModal_1();
+            }
+        }
+        trigger1.addEventListener("click", toggleModal_1); 
+        closeButton1.addEventListener("click", toggleModal_1); 
+        window.addEventListener("click", windowOnClick_1);
+        /* 회원가입 폼 레이어팝업 js 끝 */
+    </script>
+    <div id="footer">
+        <h3><span id="coding">Developers</span> : Jeong Sanghyeon, Shin Juwon.</h3>
+    </div>
+</body>
+</html>
