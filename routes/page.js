@@ -14,19 +14,20 @@ router.get('/', function (req, res) {
     }
 }); //index.ejs를 끄집어와요
 
-router.get('/user', function (req, res) {
-    res.render('../views/users/login.ejs');
-}); //login.ejs를 끄집어와요! 와! 로그인 하자!
+router.get('/game', function(req, res){
+    res.render('../views/html/main.ejs');
+});
 
-router.get('/user/signup', function (req, res) {
-    res.render('../views/users/signup.ejs');
-}); //signup.ejs를 끄집어와요! 회원가입은 생명 아니겠습니까!
+for (let i = 1; i <= 5; i++) {
+    router.get(`/game/puzzle NO.${i}`, function(req, res){
+        res.render(`../views/html/TQ${i}.ejs`);
+    });
+}
 
-router.get('/user/findpw', function (req, res) {
-    res.render('../views/users/findpw.ejs');
-}); //findpw.ejs를 끄집어와요! 비밀번호를 잊었을때 의지할 수 있는 단 하나의 존재....
+
 
 router.get('/user/logout', function (req, res) {
+router.get('/user/logout', function (req, res){
     delete req.session.user_id;
     delete req.session.name;
     res.redirect('/');

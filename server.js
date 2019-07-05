@@ -2,7 +2,7 @@ var express = require('express');
 var logger = require('morgan');
 var favicon = require('serve-favicon');
 var path = require('path');
-var coding = require('./routes/page');
+var cording = require('./routes/page');
 var app = express();
 var database = require('./models/DB');
 var cookieParser = require('cookie-parser');
@@ -26,8 +26,9 @@ app.use(session({
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-app.use('/', coding);
-app.use('/user', coding);
+app.use('/', cording);
+app.use('/user', cording);
+app.use('/game', cording);
 
 app.listen(8080, function () {
     console.log('8080포트에서 대기중');
