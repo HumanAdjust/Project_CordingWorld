@@ -1,5 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
-const dbName = 'CodingDB'; // Database Name
+// const assert = require('assert');
+
+const dbName = 'CordingDB'; // Database Name
 
 var database;
 
@@ -27,18 +29,18 @@ exports.authUser = function (id, password, callback) {
     var result = users.find({ "id": id, "passwords": password });
 
     result.toArray(
-        function (err, data) {
+        function (err, docs) {
             if (err) {
                 callback(err, null);
                 return;
             }
 
-            if (data.length > 0) {
-                console.log('find user [ ' + data + ' ]');
-                callback(null, data);
+            if (docs.length > 0) {
+                console.log('find user [ ' + docs + ' ]');
+                callback(null, docs);
             }
             else {
-                console.log('can not find user [ ' + data + ' ]');
+                console.log('can not find user [ ' + docs + ' ]');
                 callback(null, null);
             }
         }
@@ -78,18 +80,18 @@ exports.findPassword = function(id, callback){
     var result = users.find({ "id": id });
     console.log(result);
     result.toArray(
-        function (err, data) {
+        function (err, docs) {
             if (err) {
                 callback(err, null);
                 return;
             }
 
-            if (data.length > 0) {
-                console.log('일치하는 유저 발견!');
-                callback(null, data);
+            if (docs.length > 0) {
+                console.log('find user [ ' + docs + ' ]');
+                callback(null, docs);
             }
             else {
-                console.log('일치하지 않음!');
+                console.log('can not find user [ ' + docs + ' ]');
                 callback(null, null);
             }
         }
@@ -103,16 +105,16 @@ exports.sameUser = function(id, callback){
     var result = users.find({ "id": id });
 
     result.toArray(
-        function (err, data) {
+        function (err, docs) {
             if (err) {
                 callback(err, null);
                 return;
             }
 
-            if (data.length > 0) {
+            if (docs.length > 0) {
                 console.log('일치하는 유저: ' + result.count());
-                console.log(data);
-                callback(null, data);
+                console.log(docs);
+                callback(null, docs);
             }
             else {
                 console.log('일치하는 유저 없음');
@@ -122,78 +124,3 @@ exports.sameUser = function(id, callback){
 
     );
 }; //아이디 중복 확인
-
-exports.profile = function(id, callback){
-    var users = database.collection('users');
-    var result = users.find({ "id": id });
-
-    result.toArray(
-        function (err, data) {
-            if (err) {
-                callback(err, null);
-                return;
-            }
-
-            if (data.length > 0) {
-                console.log('일치하는 유저: ' + result.count());
-                console.log(data);
-                callback(null, data);
-            }
-            else {
-                console.log('일치하는 유저 없음');
-                callback(null, true);
-            }
-        }
-
-    );
-} //프로필 불러오기
-
-exports.picture = function (img, callback){
-    console.log('picture 호출됨');
-
-    database.collection('profile_pic').insertOne(img, (err, result) => {
-        console.log(result);
-        if (err) {
-            callback(err, null);
-            return;
-        }
-        
-        if (result.insertedCount > 0) {
-            console.log('프로필 사진 등록 성공!: ' + result.insertedCount);
-            callback(null, true);
-        }
-        else {
-            console.log('프로필 사진 등록에 실패했어요...');
-            callback(null, false);
-        }
-    });
-
-}; //프로필 사진 집어넣기
-
-exports.showpicure = function (img, callback) {
-    console.log('showpicture 호출됨');
-
-    var users = database.collection('profile_pic');
-
-    var result = users.find({ "image": img });
-    console.log(result);
-    result.toArray(
-        function (err, data) {
-            if (err) {
-                callback(err, null);
-                return;
-            }
-
-            if (data.length > 0) {
-                console.log('프로필 사진 호출 성공!');
-                callback(null, data);
-            }
-            else {
-                console.log('프로필 사진 호출 실패..');
-                callback(null, null);
-            }
-        }
-
-    );
-
-}; //프로필 사진 가져오기
