@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var express = require('express');
 var router = express.Router();
 var db = require('../models/DB');
@@ -244,7 +243,6 @@ router.post('/upload', upload.single('upload_image'), function (req, res) {
     });
 }); //프로필 사진을 DB에 넣어요!
 
-=======
 var express = require('express');
 var router = express.Router();
 var db = require('../models/DB')
@@ -431,5 +429,4 @@ router.post('/user/adduser', function (req, res) {
     }
 }); //유저 정보 전송
 
->>>>>>> e36e99fe7db0c62b51d7c5551e2545dd69505779
 module.exports = router; //라우터를 모듈화
