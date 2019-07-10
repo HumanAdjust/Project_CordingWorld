@@ -10,12 +10,13 @@ var Puzzle =
 	'BORDER_WIDTH'	: 1,		//BORDER WIDTH
 	'BORDER_COLOR'	: '#000',	//BORDER COLOR
 	'SPEED'			: 200,		//TRANSITION SPEED
+	solvedTry :0,
 
 	draw:function(){
 		Puzzle.make(3);
 		Puzzle.shuffle();
 	},
-
+	
 	//----------------------------------------------
 	// MAKE PUZZLE
 	// :: sets up puzzle from image
@@ -255,6 +256,7 @@ var Puzzle =
 		}
 		//input text 값 초기화
 		$('#submitAns1').val(null);
+		solvedTry++;
 	},
 
 	TQ2_check: function(){
@@ -267,6 +269,7 @@ var Puzzle =
 		}
 		//input text 값 초기화
 		$('#submitAns2').val(null);
+		solvedTry++;
 	},
 
 	TQ3_check: function(){
@@ -279,6 +282,7 @@ var Puzzle =
 		}
 		//input text 값 초기화
 		$('#submitAns3').val(null);
+		solvedTry++;
 	},
 
 	TQ4_check: function(){
@@ -291,6 +295,7 @@ var Puzzle =
 		}
 		//input text 값 초기화
 		$('#submitAns5').val(null);
+		solvedTry++;
 	},
 
 	TQ5_check: function(){
@@ -303,6 +308,7 @@ var Puzzle =
 		}
 		//input text 값 초기화
 		$('#submitAns5').val(null);
+		solvedTry++;
 	},
 
 
@@ -321,6 +327,7 @@ var Puzzle =
 	'solution'		: '',	//solution string
 	'initialized'	: false,	//initialized
 	'piece_arr'	: new Array(),	//solution string
+	'solvedTry' : 0,
 
 
 	//----------------------------------------------

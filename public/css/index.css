@@ -5,12 +5,12 @@ body{
   font-size:13pt;
   color:white;
 }
+#intro{
+  text-align:center;
+}
 center{
   background-color:rgba(0, 0, 0, 0.6); 
   position: absolute; 
-}
-#intro{
-  text-align:center;
 }
 #bgImg{
   width:100vw;
@@ -28,14 +28,18 @@ p{
 h4{
   font-size:30pt;
   position:absolute;
-  margin-top:560px;
-  margin-left:630px;
+  top:42%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  /* margin-top:100px;
+  margin-left:52px; */
 }
 h2{
   font-size:50pt;
   position:absolute;
-  margin-top:460px;
-  margin-left:682px;
+  top:35%;
+  left:50%;
+  transform: translate(-50%, -50%);
 }
 ::-webkit-scrollbar{
   display:none;
@@ -203,7 +207,8 @@ input{
 #footer{
   position:absolute;
   font-size:30px;
-  margin-top:1100px;
-  margin-left:580px;
+  top:125%;
+  left:50%;
+  transform: translate(-50%, -50%);
   margin-block:0;
 }
