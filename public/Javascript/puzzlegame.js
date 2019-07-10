@@ -1,3 +1,5 @@
+var db = require('../../models/DB');
+
 var Puzzle =
 {
 
@@ -303,14 +305,23 @@ var Puzzle =
 		/*checkAns = document.getElementById('submitAns').value;*/
 		if(parseInt(checkAns) === 1) {
 			alert("맞았습니다!");
+			solvedTry++;
+
+			db.profileupdate(id, function (err, show){
+				if(err){
+					console.log(err);
+				}
+
+				if(show == true){
+					console.log('건도 인생 성공');
+				}
+			});
 		} else {
 			alert("틀림");
 		}
 		//input text 값 초기화
 		$('#submitAns5').val(null);
-		solvedTry++;
 	},
-
 
 /* --
 -----------------------------------------------

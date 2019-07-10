@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../models/DB')
+var db = require('../models/DB');
+var puzzle = require('../public/Javascript/puzzlegame');
 
 router.get('/', function (req, res) {
     if(req.session.user_id != null){
@@ -36,7 +37,7 @@ router.get('/mypage', function(req, res){
 
             if (show) {
                 console.log("이름: " + show[0].nickname);
-                res.render('../views/html/mypage.ejs', { name: show[0].nickname, islogin: 'login' });
+                res.render('../views/html/mypage.ejs', { name: show[0].nickname, islogin: 'login', solved_try: show[0].solved});
                 res.end();
             }
         });
