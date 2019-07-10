@@ -1,7 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-// const assert = require('assert');
-
-const dbName = 'CordingDB'; // Database Name
+const dbName = 'CodingDB'; // Database Name
 
 var database;
 
@@ -29,18 +27,18 @@ exports.authUser = function (id, password, callback) {
     var result = users.find({ "id": id, "passwords": password });
 
     result.toArray(
-        function (err, docs) {
+        function (err, data) {
             if (err) {
                 callback(err, null);
                 return;
             }
 
-            if (docs.length > 0) {
-                console.log('find user [ ' + docs + ' ]');
-                callback(null, docs);
+            if (data.length > 0) {
+                console.log('find user [ ' + data + ' ]');
+                callback(null, data);
             }
             else {
-                console.log('can not find user [ ' + docs + ' ]');
+                console.log('can not find user [ ' + data + ' ]');
                 callback(null, null);
             }
         }
@@ -80,18 +78,18 @@ exports.findPassword = function(id, callback){
     var result = users.find({ "id": id });
     console.log(result);
     result.toArray(
-        function (err, docs) {
+        function (err, data) {
             if (err) {
                 callback(err, null);
                 return;
             }
 
-            if (docs.length > 0) {
-                console.log('find user [ ' + docs + ' ]');
-                callback(null, docs);
+            if (data.length > 0) {
+                console.log('사용자를 찾았어요: ' + result.count());
+                callback(null, data);
             }
             else {
-                console.log('can not find user [ ' + docs + ' ]');
+                console.log('사용자를 찾지 못했어요..');
                 callback(null, null);
             }
         }
@@ -105,16 +103,16 @@ exports.sameUser = function(id, callback){
     var result = users.find({ "id": id });
 
     result.toArray(
-        function (err, docs) {
+        function (err, data) {
             if (err) {
                 callback(err, null);
                 return;
             }
 
-            if (docs.length > 0) {
+            if (data.length > 0) {
                 console.log('일치하는 유저: ' + result.count());
-                console.log(docs);
-                callback(null, docs);
+                console.log(data);
+                callback(null, data);
             }
             else {
                 console.log('일치하는 유저 없음');
@@ -124,3 +122,29 @@ exports.sameUser = function(id, callback){
 
     );
 }; //아이디 중복 확인
+
+exports.profile = function(id, callback){
+    console.log('profile 호출됨');
+    var users = database.collection('users');
+
+    var result = users.find({ "id": id });
+    console.log(result);
+    result.toArray(
+        function (err, data) {
+            if (err) {
+                callback(err, null);
+                return;
+            }
+
+            if (data.length > 0) {
+                console.log('사용자를 찾았어요: ' + result.count());
+                callback(null, data);
+            }
+            else {
+                console.log('사용자를 찾지 못했어요..');
+                callback(null, null);
+            }
+        }
+
+    );
+}; //마이페이지 프로필 가져오기

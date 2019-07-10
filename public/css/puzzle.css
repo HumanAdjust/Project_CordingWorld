@@ -58,6 +58,9 @@ p {
 /*-------------------- 이미지 슬라이딩 퍼즐 css 끝----------------*/
 
 /*---------------------상단 navbar css -----------------------*/
+#coding{
+    color:wheat;
+}
 .banner {
     border:5px solid wheat;
     margin: 0; padding: 0;
