@@ -23,6 +23,11 @@ body {
   border: 2px solid black;
 }
 
+.main_banner{
+    max-width: 100%; 
+    height: auto;
+}
+
 .mypage-card {
   padding: 40px;
   width: 70%;
