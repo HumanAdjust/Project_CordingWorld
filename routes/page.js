@@ -16,17 +16,13 @@ router.get('/', function (req, res) {
 
 router.get('/game', function(req, res){
     res.render('../views/html/main.ejs');
+    for (let i = 1; i <= 5; i++) {
+        router.get(`/game/puzzle NO.${i}`, function (req, res) {
+            res.render(`../views/html/TQ${i}.ejs`);
+        });
+    }
 });
 
-for (let i = 1; i <= 5; i++) {
-    router.get(`/game/puzzle NO.${i}`, function(req, res){
-        res.render(`../views/html/TQ${i}.ejs`);
-    });
-}
-
-
-
-router.get('/user/logout', function (req, res) {
 router.get('/user/logout', function (req, res){
     delete req.session.user_id;
     delete req.session.name;
@@ -40,21 +36,30 @@ router.get('/user/mypage', function (req, res) {
         db.profile(id, function (err, show) {
             if (err) {
                 console.log('오류 발생!');
-                res.status(401).send('<script type="text/javascript">alert("에러가 발생했습니다."); document.location.href="/user/signup";</script>');
+                res.status(401).send('<script type="text/javascript">alert("에러가 발생했습니다."); document.location.href="/";</script>');
                 res.end();
                 return;
             }
 
             if (show) {
                 console.log("이름: " + show[0].nickname);
-                res.status(200).render('../views/users/mypage.ejs', { name: show[0].nickname, islogin: 'login' });
+                res.render('../views/users/mypage.ejs', { name: show[0].nickname, islogin: 'login' });
                 res.end();
             }
         });
     } else {
-        res.render('../views/users/mypage.ejs', { name: 'testfail', islogin: 'no' });
+        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.end();
     }
 }); //마이페이지에 접속 시 유저 정보를 가져옵니다!
+
+router.get('/user/findpw', function (req, res) {
+    res.render('../views/users/findpw.ejs');
+}); //마이페이지에 접속 시 유저 정보를 가져옵니다!
+
+router.get('/lecture', function (req, res){
+    res.render('../views/html/lecture.ejs');
+})
 
 router.post('/user/login', function (req, res) {
     console.log('user/login 호출됨');
@@ -68,7 +73,7 @@ router.post('/user/login', function (req, res) {
                 if (db) {
                     if (err) {
                         console.log('오류 발생!');
-                        res.status(401).send('<script type="text/javascript">alert("에러 발생!"); document.location.href="/user";</script>');
+                        res.status(401).send('<script type="text/javascript">alert("에러 발생!"); document.location.href="/";</script>');
                         res.end();
                         return;
                     }
@@ -85,13 +90,13 @@ router.post('/user/login', function (req, res) {
                     }
                     else {
                         console.log('유저가 존재하지 않아요!');
-                        res.status(401).send('<script type="text/javascript">alert("유저가 존재하지 않습니다!"); document.location.href="/user/signup";</script>');
+                        res.status(401).send('<script type="text/javascript">alert("유저가 존재하지 않습니다!"); document.location.href="/";</script>');
                         res.end();
                     }
                 }
                 else {
                     console.log('DB 연결 안됨');
-                    res.status(401).send('<script type="text/javascript">alert("DB 연결 실패!"); document.location.href="/user";</script>');
+                    res.status(401).send('<script type="text/javascript">alert("DB 연결 실패!"); document.location.href="/";</script>');
                     res.end();
                 }
             }
@@ -207,7 +212,7 @@ router.post('/user/adduser', function (req, res) {
 }
 }); //유저 정보 전송
 
-router.post('/upload', upload.single('profile'), function (req, res) {
+router.post('/upload', upload.single('upload_image'), function (req, res) {
     var img = fs.readFileSync(req.file.path);
     var encode_image = img.toString('base64');
 
@@ -237,6 +242,5 @@ router.post('/upload', upload.single('profile'), function (req, res) {
         }
     });
 }); //프로필 사진을 DB에 넣어요!
-
 
 module.exports = router; //라우터를 모듈화

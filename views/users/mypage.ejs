@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>코딩 월드::내 정보</title>
+    <link rel="stylesheet" href="/css/mypage.css" media="screen" type="text/css" />
+    <title>코딩 월드 :: 내 정보</title>
 </head>
   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript">
@@ -18,7 +19,7 @@
             var reader = new FileReader();
  
             reader.onload = function (e) {
-                    $('#blah').attr('src', e.target.result);
+                    $('.show_file').attr('src', e.target.result);
                 }
               reader.readAsDataURL(input.files[0]);
             }
@@ -26,15 +27,21 @@
     </script>
 <body>
     <center>
-        <h1><%= name %></h1>
-
-        <div>
-            <img id="blah" width="279" height="279" />
+        <div class="mypage-card">
+            <img class="show_file" src="/images/profile.png" width="275" height="275" align="left"/>
+            <h1 class="name"><b><%= name %></b></h1>
+            <br><br><br><br>
+            <p class="description">Hello, there!</p>
         </div>
-        <div>
-            <input type='file' id="upload_file" name="upload_file" />
+        <div class="detail">
+            <p>총 시도한 횟수: </p>
+            <p>퍼즐을 맞춘 횟수: </p>
+            <p>현재 등급: </p>
         </div>
-        
+        <!-- <form action="/upload" method="POST">
+            <input type="file" id="upload_file" name="upload_file" />
+            <input type="submit" value="업로드">
+        </form> -->
     </center>
 </body>
 </html>

@@ -6,11 +6,26 @@ body {
   -o-background-size: cover;
   background-size: cover;
   font-family: 'Roboto', sans-serif;
-} /*로그인, 회원가입, 비밀번호 찾기 페이지의 전체 구성*/
+} /*마이페이지의 전체 구성*/
 
-.login-card {
+.name{
+  margin-right: 65%; 
+  font-size: 60px;
+}
+
+.description{
+  margin-right: 64%; 
+  font-size: 20px;
+}
+
+.detail{
+  width: 70%;
+  border: 2px solid black;
+}
+
+.mypage-card {
   padding: 40px;
-  width: 274px;
+  width: 70%;
   background-color: #F7F7F7;
   margin: 0 auto 10px;
   border-radius: 2px;
@@ -18,20 +33,20 @@ body {
   overflow: hidden;
 } /*(아래 모두 포함)로그인 정보를 입력하는 폼 전체 구성*/
 
-.login-card h1 {
+.mypage-card h1 {
   font-weight: 100;
   text-align: center;
   font-size: 2.3em;
 }
 
-.login-card input[type=submit] {
+.mypage-card input[type=submit] {
   width: 100%;
   display: block;
   margin-bottom: 10px;
   position: relative;
 }
 
-.login-card input[type=text], input[type=password] {
+.mypage-card input[type=text], input[type=password] {
   height: 44px;
   font-size: 16px;
   width: 100%;
@@ -45,7 +60,7 @@ body {
   -moz-box-sizing: border-box;
 }
 
-.login-card input[type=text]:hover, input[type=password]:hover {
+.mypage-card input[type=text]:hover, input[type=password]:hover {
   border: 1px solid #b9b9b9;
   border-top: 1px solid #a0a0a0;
   -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
@@ -53,7 +68,7 @@ body {
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
 }
 
-.login {
+.mypage {
   text-align: center;
   font-size: 14px;
   font-family: 'Arial', sans-serif;
@@ -62,20 +77,20 @@ body {
   padding: 0 8px;
 }
 
-.login-submit {
+.mypage-submit {
   border: 0px;
   color: #fff;
   text-shadow: 0 1px rgba(0,0,0,0.1); 
   background-color: #4d90fe;
 }
 
-.login-submit:hover {
+.mypage-submit:hover {
   border: 0px;
   text-shadow: 0 1px rgba(0,0,0,0.3);
   background-color: #357ae8;
 }
 
-.login-card a {
+.mypage-card a {
   text-decoration: none;
   color: #666;
   font-weight: 400;
@@ -85,11 +100,11 @@ body {
   transition: opacity ease 0.5s;
 }
 
-.login-card a:hover {
+.mypage-card a:hover {
   opacity: 1;
 }
 
-.login-help {
+.mypage-help {
   width: 100%;
   text-align: center;
   font-size: 12px;
