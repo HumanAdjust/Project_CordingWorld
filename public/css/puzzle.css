@@ -1,7 +1,7 @@
 /*-----------------이미지 슬라이딩 퍼즐 css----------------*/
 /* -- body -- */
 body {
-    color: #999;
+    color: white;
     font-family:"NANUMSQUAREROUNDEB.TTF";
     font-size: 13px;
     width: 100vw;
@@ -26,17 +26,17 @@ center{
 }
 
 #content {
-    border: 5px ridge white;
+    /* border: 5px ridge white; */
     width:520px;
-    height:385px;
+    height:335px;
     margin-left:auto;
     margin-right:auto;
     margin-top:15px;
 }
 
 p {
-    color: #999;
-    font-size: 14pt;
+    color: white;
+    font-size: 15pt;
     margin-top: 15px;
     margin-left:80px;
     width:520px;
@@ -122,12 +122,11 @@ p {
     margin-top:150px;
     margin-left:550px;
     margin-right:370px;
-    z-index:10;
-    
+    z-index:10;  
 }
 
 #iframe{
-    background-color:wheat;
+    background-color:#9999;
 }
 
 div>ul{
@@ -144,22 +143,23 @@ ul.tabs{
 }
 ul.tabs li{
     background: none;
-    color: #999;
+    color: white;
     display: inline-block;
     padding: 10px 15px;
     cursor: pointer;
 }
 
 ul.tabs li.current{
-    background: wheat;
-    border:5px outset #9999;
-    color: #999;
-    font-weight:bold;
+    background: #9999;
+    border-top:5px outset #9999;
+    border-left:5px outset #9999;
+    border-right:5px outset #9999;
+    color: white;
 }
 
 .tab-content{
     display: none;
-    background: wheat;
+    background: #9999;
     border:10px outset #9999;
     padding: 5px 5px 5px 20px;
     height:90px;

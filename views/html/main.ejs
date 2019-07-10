@@ -71,15 +71,21 @@
 					<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ5_check()">
 				</form>
 			</div>
-			<button onclick="location.href='/'">home</a>
-		</div>
+		</div><!-- container -->
 		<ul class="banner">
             <li class="text" id="mypage"><a href="/mypage">MyPage</a></li>
             <li class="text" id="puzzle"><a href="/game">PuzzleGame</a></li>
 			<li class="text" id="lecture"><a href="/lecture">Lecture</a></li>
 			<li class="text" id="main"><a href="/" style="margin-right:206px"><span id="coding">Coding</span> World</a></li>
-            <li class="text" id="log"></li>
-			<li class="text" id="logout"><a href="./user/logout">Log Out</a></li>
+            <li class="text" id="log">
+                <!-- <% if(islogin == 'login'){ %> -->
+				<li class="text" id="logout"><a href="./user/logout">Log Out</a></li>
+                <!-- <% } else { %>
+                    <li class="text" id="findpw"><a class="trigger_3" onclick="layerpopup(3)">Find Pw</a></li>
+                    <li class="text" id="signup"><a class="trigger_2" onclick="layerpopup(2)">Sign Up</a></li>
+                    <li class="text" id="login"><a class="trigger_1" onclick="layerpopup(1)">Log In</a></li>
+                <% } %> -->
+            </li>
         </ul>
 		<img id="bgImg" src="images/coding1.jpg" alt="">
 	</center>

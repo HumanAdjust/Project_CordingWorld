@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../models/DB');
-var puzzle = require('../public/Javascript/puzzlegame');
+var db = require('../models/DB')
 
 router.get('/', function (req, res) {
     if(req.session.user_id != null){
@@ -15,12 +14,18 @@ router.get('/game', function(req, res){
     if(req.session.user_id != null){
         res.render('../views/html/main.ejs', { islogin: 'login' });
     } else {
-        res.render('../views/html/main.ejs', { islogin: 'no' });
+        res.send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.end();
     }
 });
 
 router.get('/lecture', function(req, res){
-    res.render('../views/html/lecture.ejs');
+    if (req.session.user_id != null) {
+        res.render('../views/html/lecture.ejs', { islogin : 'login' });
+    } else {
+        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.end();
+    }
 });
 
 router.get('/mypage', function(req, res){
@@ -37,7 +42,7 @@ router.get('/mypage', function(req, res){
 
             if (show) {
                 console.log("이름: " + show[0].nickname);
-                res.render('../views/html/mypage.ejs', { name: show[0].nickname, islogin: 'login', solved_try: show[0].solved});
+                res.render('../views/html/mypage.ejs', { name: show[0].nickname, islogin: 'login' });
                 res.end();
             }
         });

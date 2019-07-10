@@ -1,7 +1,12 @@
+@font-face {
+  font-family:"NANUMSQUAREROUNDEB";
+  src:url('NANUMSQUAREROUNDEB.TTF')format('truetype');
+}
+
 body{
   margin:0px;
   padding:0px;
-  font-family:"NANUMSQUAREROUNDEB.TTF";
+  font-family:"NANUMSQUAREROUNDEB";
   font-size:13pt;
   color:white;
 }

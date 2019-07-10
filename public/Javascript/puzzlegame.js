@@ -1,5 +1,3 @@
-var db = require('../../models/DB');
-
 var Puzzle =
 {
 
@@ -197,27 +195,6 @@ var Puzzle =
 	// FIXES PUZZLE
 	// :: Puzzle does NOT needs to be initialized first
 	//----------------------------------------------
-	/**
-	* 	Example:
-	*	Puzzle.switch_image('i/xyz.gif');
-	**/
-	switch_image: function(imageSrc)
-	{
-		this.preload = new Image();
-
-		if(Puzzle.initialized)
-		{
-			//if puzzle initialized then switch backgrounds
-			this.preload.onload = this.do_switch_puzzle_image.bind(this);
-		}
-		else
-		{
-			//if not just switch image
-			this.preload.onload = this.do_switch_image.bind(this);
-		}
-		this.preload.src = imageSrc;
-		return false;
-	},
 
 
 	//----------------------------------------------
@@ -305,23 +282,14 @@ var Puzzle =
 		/*checkAns = document.getElementById('submitAns').value;*/
 		if(parseInt(checkAns) === 1) {
 			alert("맞았습니다!");
-			solvedTry++;
-
-			db.profileupdate(id, function (err, show){
-				if(err){
-					console.log(err);
-				}
-
-				if(show == true){
-					console.log('건도 인생 성공');
-				}
-			});
 		} else {
 			alert("틀림");
 		}
 		//input text 값 초기화
 		$('#submitAns5').val(null);
+		solvedTry++;
 	},
+
 
 /* --
 -----------------------------------------------
