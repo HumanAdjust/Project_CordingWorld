@@ -3,6 +3,7 @@ var logger = require('morgan');
 var favicon = require('serve-favicon');
 var path = require('path');
 var cording = require('./routes/page');
+var puzzle = require('./public/Javascript/puzzlegame');
 var app = express();
 var database = require('./models/DB');
 var cookieParser = require('cookie-parser');
