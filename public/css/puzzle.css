@@ -1,15 +1,32 @@
 /*-----------------이미지 슬라이딩 퍼즐 css----------------*/
 /* -- body -- */
-body	{
-    background-color: #fff;
-    color: #333436;
+body {
+    color: #999;
+    font-family:"NANUMSQUAREROUNDEB.TTF";
     font-size: 13px;
     width: 100vw;
     margin: 0;
 }
 
+center{
+    background-color:rgba(0, 0, 0, 0.6); 
+    position: absolute; 
+}
+
+#bgImg {
+    width:100vw;
+    height:100vw*(1152/1738)px;
+    overflow:scroll;
+    position:relative;
+    z-index:-1;
+}
+
+::-webkit-scrollbar{
+    display:none;
+}
+
 #content {
-    border: 5px ridge wheat;
+    border: 5px ridge white;
     width:520px;
     height:385px;
     margin-left:auto;
@@ -19,32 +36,99 @@ body	{
 
 p {
     color: #999;
-    font-size: 12pt;
+    font-size: 14pt;
     margin-top: 15px;
     margin-left:80px;
     width:520px;
 }
 
 #submitBtn{
-    background-color : lightgoldenrodyellow;
-    border : 3px outset lightgoldenrodyellow;
+    color:#999;
+    background-color : wheat;
+    border : 3px outset white;
+    border-radius:6px;
     /* ▼ 버튼 클릭 시 테두리 제거 */
     outline:0;
 }
 
 #submitBtn:active{
-    border : 3px inset lightgoldenrodyellow;
+    border : 3px inset white;
 }
 
 /*-------------------- 이미지 슬라이딩 퍼즐 css 끝----------------*/
 
+/*---------------------상단 navbar css -----------------------*/
+.banner {
+    border:5px solid wheat;
+    margin: 0; padding: 0;
+    list-style: none;
+    position: fixed;
+    width: 99.4vw;
+}
+.banner>li#mypage{
+    margin-left:20px;
+    float:left;
+}
+.banner>li#puzzle{
+    margin-left:20px;
+    float:left;
+}
+.banner>li#lecture{
+    margin-left:20px;
+    float:left;
+}
+.banner>li#findpw{
+    margin-right:20px;
+    float:right;
+}
+.banner>li#login{
+    margin-right:20px;
+    float:right;
+}
+.banner>li#logout{
+    margin-right:20px;
+    float:right;
+}
+.banner>li#signup{
+    margin-right:20px;
+    float:right;
+}
+.banner>li {
+    display: inline-block;
+    border: 2.5px solid transparent;
+    padding-left:5px;
+    padding-right:5px;
+}
+.banner>li>a {
+    font-size:13pt;
+    display: block;
+    text-decoration: none;
+    color:white;
+    font-weight:bold;
+    height:60px;
+    line-height:60px;
+}
+/*---------------------상단 navbar css 끝-----------------------*/
+
 /* -----------------------탭 메뉴 구현 css----------------------- */
 
 .container{
+    position:fixed;
     width: 800px;
-    height: 650px;
-    margin-right: auto;
-    margin-left: auto;
+    height: 700px;
+    margin-top:150px;
+    margin-left:550px;
+    margin-right:370px;
+    z-index:10;
+    
+}
+
+#iframe{
+    background-color:wheat;
+}
+
+div>ul{
+    margin:0;
 }
 
 ul.tabs{
@@ -52,26 +136,31 @@ ul.tabs{
     padding: 0px;
     list-style: none;
     width:720px;
+    margin-block-end:0;
+    margin-block-start:0;
 }
 ul.tabs li{
     background: none;
-    color: #222;
+    color: #999;
     display: inline-block;
     padding: 10px 15px;
     cursor: pointer;
 }
 
 ul.tabs li.current{
-    background: #ededed;
-    color: #222;
+    background: wheat;
+    border:5px outset #9999;
+    color: #999;
+    font-weight:bold;
 }
 
 .tab-content{
     display: none;
-    background: #ededed;
+    background: wheat;
+    border:10px outset #9999;
     padding: 5px 5px 5px 20px;
     height:90px;
-    width:695px;
+    width:675px;
 }
 
 .tab-content.current{
@@ -79,12 +168,13 @@ ul.tabs li.current{
 }
 
 #iframe{
-    border:10px ridge wheat;
+    border:10px outset #9999;
     margin-right: auto;
     margin-left: auto;
 }
 
 #puzzle{
-    padding:0px 0px 0px 60px;
+    margin-left:auto;
+    margin-right:auto;
 }
 /*------ 탭 메뉴와 함께 퍼즐 (개발 중 구분용 <수정 필수>) css 끝 ------*/

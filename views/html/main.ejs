@@ -26,52 +26,68 @@
 </head>
 <body>
 	<!-- 게임 구성 화면 구현 with tab menu -->
-	<div class="container">
-		<ul class="tabs">
-			<li class="tab-link current" data-tab="tab-1">Question 1</li>
-			<li class="tab-link" data-tab="tab-2">Question 2</li>
-			<li class="tab-link" data-tab="tab-3">Question 3</li>
-			<li class="tab-link" data-tab="tab-4">Question 4</li>
-			<li class="tab-link" data-tab="tab-5">Question 5</li>
-		</ul>
-		<iframe id="iframe" src="puzzleQ/TQ1.html" frameborder="0" width="700" height="500"></iframe>
-		<div id="tab-1" data-url="puzzleQ/TQ1.html" class="tab-content current">
-			<h3>1번 문제입니다!</h3>
-			<form method="POST">
-				정답 : <input id="submitAns1" type="text" name="정답란" placeholder="정답 입력란">
-				<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ1_check()">
-			</form>
-		</div>
-		<div id="tab-2" data-url="puzzleQ/TQ2.html" class="tab-content">
-			<h3>2번 문제입니다!</h3>
-			<form method="POST">
-				정답 : <input id="submitAns2" type="text" name="정답란" placeholder="정답 입력란">
-				<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ2_check()">
-			</form>		
-		</div>
-		<div id="tab-3" data-url="puzzleQ/TQ3.html" class="tab-content">
-			<h3>3번 문제입니다!</h3>
-			<form method="POST">
-				정답 : <input id="submitAns3" type="text" name="정답란" placeholder="정답 입력란">
-				<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ3_check()">
-			</form>
-		</div>
-		<div id="tab-4" data-url="puzzleQ/TQ4.html" class="tab-content">
-			<h3>4번 문제입니다!</h3>
-			<form method="POST">
-				정답 : <input id="submitAns4" type="text" name="정답란" placeholder="정답 입력란">
-				<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ4_check()">
-			</form>
-		</div>
-		<div id="tab-5" data-url="puzzleQ/TQ5.html" class="tab-content">
-			<h3>5번 문제입니다!</h3>
-			<form method="POST">
-				정답 : <input id="submitAns5" type="text" name="정답란" placeholder="정답 입력란">
-				<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ5_check()">
-			</form>
-		</div>
-	</div><!-- container -->
-
-	<a href="/">home</a>
+	<center>
+		<div class="container">
+			<ul class="tabs">
+				<li class="tab-link current" data-tab="tab-1">Question 1</li>
+				<li class="tab-link" data-tab="tab-2">Question 2</li>
+				<li class="tab-link" data-tab="tab-3">Question 3</li>
+				<li class="tab-link" data-tab="tab-4">Question 4</li>
+				<li class="tab-link" data-tab="tab-5">Question 5</li>
+			</ul>
+			<iframe id="iframe" src="puzzleQ/TQ1.html" frameborder="0" width="700" height="500"></iframe>
+			<div id="tab-1" data-url="puzzleQ/TQ1.html" class="tab-content current">
+				<h3>1번 문제입니다!</h3>
+				<form method="POST">
+					정답 : <input id="submitAns1" type="text" name="정답란" placeholder="정답 입력란">
+					<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ1_check()">
+				</form>
+			</div>
+			<div id="tab-2" data-url="puzzleQ/TQ2.html" class="tab-content">
+				<h3>2번 문제입니다!</h3>
+				<form method="POST">
+					정답 : <input id="submitAns2" type="text" name="정답란" placeholder="정답 입력란">
+					<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ2_check()">
+				</form>		
+			</div>
+			<div id="tab-3" data-url="puzzleQ/TQ3.html" class="tab-content">
+				<h3>3번 문제입니다!</h3>
+				<form method="POST">
+					정답 : <input id="submitAns3" type="text" name="정답란" placeholder="정답 입력란">
+					<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ3_check()">
+				</form>
+			</div>
+			<div id="tab-4" data-url="puzzleQ/TQ4.html" class="tab-content">
+				<h3>4번 문제입니다!</h3>
+				<form method="POST">
+					정답 : <input id="submitAns4" type="text" name="정답란" placeholder="정답 입력란">
+					<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ4_check()">
+				</form>
+			</div>
+			<div id="tab-5" data-url="puzzleQ/TQ5.html" class="tab-content">
+				<h3>5번 문제입니다!</h3>
+				<form method="POST">
+					정답 : <input id="submitAns5" type="text" name="정답란" placeholder="정답 입력란">
+					<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ5_check()">
+				</form>
+			</div>
+			<a href="/">home</a>
+		</div><!-- container -->
+		<ul class="banner">
+            <li class="text" id="mypage"><a href="/mypage">MyPage</a></li>
+            <li class="text" id="puzzle"><a href="/game">PuzzleGame</a></li>
+            <li class="text" id="lecture"><a href="/lecture">Lecture</a></li>
+            <li class="text" id="log">
+                <!-- <% if(islogin == 'login'){ %> -->
+				<li class="text" id="logout"><a href="./user/logout">Log Out</a></li>
+                <!-- <% } else { %>
+                    <li class="text" id="findpw"><a class="trigger_3" onclick="layerpopup(3)">Find Pw</a></li>
+                    <li class="text" id="signup"><a class="trigger_2" onclick="layerpopup(2)">Sign Up</a></li>
+                    <li class="text" id="login"><a class="trigger_1" onclick="layerpopup(1)">Log In</a></li>
+                <% } %> -->
+            </li>
+        </ul>
+		<img id="bgImg" src="images/coding1.jpg" alt="">
+	</center>
 </body>
 </html>
