@@ -70,7 +70,7 @@ router.get('/lecture/C', function (req, res) {
 
 router.get('/lecture/C++', function(req, res){
     if (req.session.user_id != null) {
-        res.render('../views/html/lecture-list/C++.ejs', { islogin : 'login' });
+        res.render('../views/html/lecture-list/Cplus.ejs', { islogin : 'login' });
     } else {
         res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
         res.end();
