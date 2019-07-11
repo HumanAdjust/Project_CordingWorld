@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="css/puzzle.css" media="all" type="text/css" />
 	<!-- 필요 js 파일 Loading -->
 	<script src="Javascript/tool.js" type="text/javascript"></script>
-	<script src="Javascript/puzzlegame.js" type="text/javascript"></script>
+	<script src="../Javascript/puzzlegame.js" type="text/javascript"></script>
 	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script>
 		$(document).ready(function(){
@@ -38,9 +38,9 @@
 			<iframe id="iframe" src="puzzleQ/TQ1.html" frameborder="0" width="700" height="500"></iframe>
 			<div id="tab-1" data-url="puzzleQ/TQ1.html" class="tab-content current">
 				<h3>1번 문제입니다!</h3>
-				<form method="POST">
+				<form method="POST" href="/game" class="Solved1">
 					정답 : <input id="submitAns1" type="text" name="정답란" placeholder="정답 입력란">
-					<input id="submitBtn" type="button" value="제출" onclick="Puzzle.TQ1_check()">
+					<input id="submitBtn" type="submit" value="제출" onclick="Puzzle.TQ1_check()">
 				</form>
 			</div>
 			<div id="tab-2" data-url="puzzleQ/TQ2.html" class="tab-content">

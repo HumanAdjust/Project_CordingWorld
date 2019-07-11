@@ -11,7 +11,8 @@ var Puzzle =
 	'BORDER_COLOR': '#000',	//BORDER COLOR
 	'SPEED': 200,		//TRANSITION SPEED
 	'solvedTry': 0,
-
+	'id': 'test',
+	
 	draw: function () {
 		Puzzle.make(3);
 		Puzzle.shuffle();
@@ -219,19 +220,7 @@ var Puzzle =
 		if (parseInt(checkAns) === 53) {
 			alert("맞았습니다!");
 			Puzzle.solvedTry++;
-			console.log("profileupdate 호출됨");
-			db.profileupdate(req.session.user_id, Puzzle.solvedTry, function(err, success)
-			{
-				if(err){
-					console.log(err);
-				}
-
-				if(success == true){
-					console.log('success');
-				}else{
-					console.log('오류 발생');
-				}
-			});
+			$('#submitBtn').submit();
 		} else {
 			alert("틀림");
 		}

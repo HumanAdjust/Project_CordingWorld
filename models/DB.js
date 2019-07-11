@@ -150,7 +150,7 @@ exports.profile = function(id, callback){
 }; //마이페이지 프로필 가져오기
 
 exports.profileupdate = function(id, solved_try, callback){
-    console.log('profile 호출됨');
+    console.log('profileupdate 호출됨');
     var users = database.collection('users');
     var result = users.update({ "id": id }, { $set: { "solved": solved_try } });
     console.log(result);

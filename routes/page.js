@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../models/DB')
+var Puzzle = require('../public/Javascript/puzzlegame');
 
 router.get('/', function (req, res) {
     if(req.session.user_id != null){
@@ -42,7 +43,7 @@ router.get('/mypage', function(req, res){
 
             if (show) {
                 console.log("이름: " + show[0].nickname);
-                res.render('../views/html/mypage.ejs', { name: show[0].nickname, islogin: 'login' });
+                res.render('../views/html/mypage.ejs', { name: show[0].nickname, islogin: 'login' , solved_Try: show[0].solved});
                 res.end();
             }
         });
@@ -209,5 +210,31 @@ router.post('/user/adduser', function (req, res) {
         }
     }
 }); //유저 정보 전송
+
+router.post('/game', function (req, res){
+    console.log("ㅎㅇ");
+    var id = req.session.user_id;
+    if (db) {
+        db.profileupdate(id, Puzzle.solvedTry, function (err, success) {
+            if (err) {
+                console.log(err);
+            }
+
+            if (success) {
+                if (success == true) {
+                    console.log('success');
+                    if (req.session.user_id != null) {
+                        res.render('../views/html/main.ejs', { islogin: 'login' });
+                    } else {
+                        res.send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+                        res.end();
+                    }
+                } else {
+                    console.log('오류 발생');
+                }
+            }
+        });
+    }
+});
 
 module.exports = router; //라우터를 모듈화
