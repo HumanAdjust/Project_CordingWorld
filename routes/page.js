@@ -68,7 +68,7 @@ router.get('/lecture/C', function (req, res) {
     }
 });
 
-router.get('/lecture/C++', function(req, res){
+router.get('/lecture/Cplus', function(req, res){
     if (req.session.user_id != null) {
         res.render('../views/html/lecture-list/Cplus.ejs', { islogin : 'login' });
     } else {
