@@ -59,6 +59,69 @@ router.get('/user/logout', function (req, res){
     res.redirect('/');
 }); //로그아웃과 함께 쿠키와 세션도 사라지는 마술☆
 
+router.get('/lecture/C', function (req, res) {
+    if (req.session.user_id != null) {
+        res.render('../views/html/lecture-list/C.ejs', { islogin: 'login' });
+    } else {
+        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.end();
+    }
+});
+
+router.get('/lecture/C++', function(req, res){
+    if (req.session.user_id != null) {
+        res.render('../views/html/lecture-list/C++.ejs', { islogin : 'login' });
+    } else {
+        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.end();
+    }
+});
+
+router.get('/lecture/Java', function (req, res) {
+    if (req.session.user_id != null) {
+        res.render('../views/html/lecture-list/Java.ejs', { islogin: 'login' });
+    } else {
+        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.end();
+    }
+});
+
+router.get('/lecture/Python', function (req, res) {
+    if (req.session.user_id != null) {
+        res.render('../views/html/lecture-list/Python.ejs', { islogin: 'login' });
+    } else {
+        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.end();
+    }
+});
+
+router.get('/lecture/HTML', function (req, res) {
+    if (req.session.user_id != null) {
+        res.render('../views/html/lecture-list/HTML.ejs', { islogin: 'login' });
+    } else {
+        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.end();
+    }
+});
+
+router.get('/lecture/CSS', function(req, res){
+    if (req.session.user_id != null) {
+        res.render('../views/html/lecture-list/CSS.ejs', { islogin : 'login' });
+    } else {
+        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.end();
+    }
+});
+
+router.get('/lecture/JavaScript', function (req, res) {
+    if (req.session.user_id != null) {
+        res.render('../views/html/lecture-list/JavaScript.ejs', { islogin: 'login' });
+    } else {
+        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.end();
+    }
+});
+
 router.post('/user/login', function (req, res) {
     console.log('user/login 호출됨');
     var paramID = req.body.user || req.query.user;
