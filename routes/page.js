@@ -24,7 +24,7 @@ router.get('/lecture', function(req, res){
     if (req.session.user_id != null) {
         res.render('../views/html/lecture.ejs', { islogin : 'login' });
     } else {
-        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
         res.end();
     }
 });
@@ -36,7 +36,7 @@ router.get('/mypage', function(req, res){
         db.profile(id, function (err, show) {
             if (err) {
                 console.log('오류 발생!');
-                res.status(401).send('<script type="text/javascript">alert("에러가 발생했습니다."); document.location.href="/";</script>');
+                res.send('<script type="text/javascript">alert("에러가 발생했습니다."); document.location.href="/";</script>');
                 res.end();
                 return;
             }
@@ -48,7 +48,7 @@ router.get('/mypage', function(req, res){
             }
         });
     } else {
-        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
         res.end();
     }
 }); //마이페이지에 접속 시 유저 정보를 가져옵니다!
@@ -63,7 +63,7 @@ router.get('/lecture/C', function (req, res) {
     if (req.session.user_id != null) {
         res.render('../views/html/lecture-list/C.ejs', { islogin: 'login' });
     } else {
-        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
         res.end();
     }
 });
@@ -72,7 +72,7 @@ router.get('/lecture/Cplus', function(req, res){
     if (req.session.user_id != null) {
         res.render('../views/html/lecture-list/Cplus.ejs', { islogin : 'login' });
     } else {
-        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
         res.end();
     }
 });
@@ -81,7 +81,7 @@ router.get('/lecture/Java', function (req, res) {
     if (req.session.user_id != null) {
         res.render('../views/html/lecture-list/Java.ejs', { islogin: 'login' });
     } else {
-        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
         res.end();
     }
 });
@@ -90,7 +90,7 @@ router.get('/lecture/Python', function (req, res) {
     if (req.session.user_id != null) {
         res.render('../views/html/lecture-list/Python.ejs', { islogin: 'login' });
     } else {
-        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
         res.end();
     }
 });
@@ -99,7 +99,7 @@ router.get('/lecture/HTML', function (req, res) {
     if (req.session.user_id != null) {
         res.render('../views/html/lecture-list/HTML.ejs', { islogin: 'login' });
     } else {
-        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
         res.end();
     }
 });
@@ -108,7 +108,7 @@ router.get('/lecture/CSS', function(req, res){
     if (req.session.user_id != null) {
         res.render('../views/html/lecture-list/CSS.ejs', { islogin : 'login' });
     } else {
-        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
         res.end();
     }
 });
@@ -117,7 +117,7 @@ router.get('/lecture/JavaScript', function (req, res) {
     if (req.session.user_id != null) {
         res.render('../views/html/lecture-list/JavaScript.ejs', { islogin: 'login' });
     } else {
-        res.status(401).send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
+        res.send('<script type="text/javascript">alert("로그인을 먼저 해주세요!"); document.location.href="/";</script>');
         res.end();
     }
 });
@@ -134,7 +134,7 @@ router.post('/user/login', function (req, res) {
                 if (db) {
                     if (err) {
                         console.log('Error!!!');
-                        res.status(401).send('<script type="text/javascript">alert("에러 발생!"); document.location.href="/user";</script>');
+                        res.send('<script type="text/javascript">alert("에러 발생!"); document.location.href="/user";</script>');
                         res.end();
                         return;
                     }
@@ -147,17 +147,16 @@ router.post('/user/login', function (req, res) {
                         console.log(req.session.user_id);
                         res.redirect('/');
                         res.end();
-
                     }
                     else {
                         console.log('empty Error!!!');
-                        res.status(401).send('<script type="text/javascript">alert("유저가 존재하지 않습니다!"); document.location.href="/user";</script>');
+                        res.send('<script type="text/javascript">alert("유저가 존재하지 않습니다!"); document.location.href="/user";</script>');
                         res.end();
                     }
                 }
                 else {
                     console.log('DB 연결 안됨');
-                    res.status(401).send('<script type="text/javascript">alert("DB 연결 실패!"); document.location.href="/user";</script>');
+                    res.send('<script type="text/javascript">alert("DB 연결 실패!"); document.location.href="/user";</script>');
                     res.end();
                 }
             }
@@ -175,7 +174,7 @@ router.post('/user/search', function (req, res) {
                 if (db) {
                     if (err) {
                         console.log('Error!!!');
-                        res.status(401).send('<script type="text/javascript">alert("에러가 발생하였습니다."); document.location.href="/user";</script>');
+                        res.send('<script type="text/javascript">alert("에러가 발생하였습니다."); document.location.href="/user";</script>');
                         res.end();
                         return;
                     }
@@ -183,18 +182,18 @@ router.post('/user/search', function (req, res) {
                     if (data) {
                         console.dir(data);
                         console.log("비밀번호 발견: " + data);
-                        res.status(401).send('<script type="text/javascript">alert("당신의 비밀번호는 '+data[0].passwords+' 입니다."); document.location.href="/user";</script>');
+                        res.send('<script type="text/javascript">alert("당신의 비밀번호는 '+data[0].passwords+' 입니다."); document.location.href="/user";</script>');
                         res.end();
                     }
                     else {
                         console.log('empty Error!!!');
-                        res.status(401).send('<script type="text/javascript">alert("유저가 존재하지 않습니다!"); document.location.href="/";</script>');
+                        res.send('<script type="text/javascript">alert("유저가 존재하지 않습니다!"); document.location.href="/";</script>');
                         res.end();
                     }
                 }
                 else {
                     console.log('DB 연결 안됨');
-                    res.status(401).send('<script type="text/javascript">alert("DB가 연결되어 있지 않습니다!"); document.location.href="/user";</script>');
+                    res.send('<script type="text/javascript">alert("DB가 연결되어 있지 않습니다!"); document.location.href="/user";</script>');
                     res.end();
                 }
             }
@@ -211,7 +210,7 @@ router.post('/user/adduser', function (req, res) {
     console.log('paramID : ' + paramID + ', paramPW : ' + paramPW + ' paramName: ' + paramName + ' paramPW_Correct ' + paramPW_Correct);
 
     if(paramID == null || paramPW == null){
-        res.status(401).send('<script type="text/javascript">alert("아이디 또는 비밀번호를 입력해주세요!"); document.location.href="/user";</script>');
+        res.send('<script type="text/javascript">alert("아이디 또는 비밀번호를 입력해주세요!"); document.location.href="/user";</script>');
         res.end();
     } else {
         if (paramPW == paramPW_Correct) {
@@ -220,7 +219,7 @@ router.post('/user/adduser', function (req, res) {
                     function(err, show){
                         if (err) {
                             console.log('Error!!!');
-                            res.status(401).send('<script type="text/javascript">alert("에러가 발생했습니다."); document.location.href="/user";</script>');
+                            res.send('<script type="text/javascript">alert("에러가 발생했습니다."); document.location.href="/user";</script>');
                             res.end();
                             return;
                         }
@@ -228,7 +227,7 @@ router.post('/user/adduser', function (req, res) {
                         if(show){
                             if(show != true){
                                 console.log('유저가 이미 존재함!');
-                                res.status(401).send('<script type="text/javascript">alert("이미 있는 회원입니다."); document.location.href="/user";</script>');
+                                res.send('<script type="text/javascript">alert("이미 있는 회원입니다."); document.location.href="/user";</script>');
                                 res.end();
                                 return;
                             }else{
@@ -236,7 +235,7 @@ router.post('/user/adduser', function (req, res) {
                                     function (err, result) {
                                         if (err) {
                                             console.log('Error!!!');
-                                            res.status(401).send('<script type="text/javascript">alert("에러가 발생했습니다.")document.location.href="/user";</script>');
+                                            res.send('<script type="text/javascript">alert("에러가 발생했습니다.")document.location.href="/user";</script>');
                                             res.end();
                                             return;
                                         }
@@ -250,7 +249,7 @@ router.post('/user/adduser', function (req, res) {
                                         }
                                         else {
                                             console.log('추가 안됨 Error!!!');
-                                            res.status(401).send('<script type="text/javascript">alert("추가에 실패했습니다.")document.location.href="/user";</script>');
+                                            res.send('<script type="text/javascript">alert("추가에 실패했습니다.")document.location.href="/user";</script>');
                                             res.end();
                                             return;
                                         }
@@ -262,12 +261,12 @@ router.post('/user/adduser', function (req, res) {
                 );
             } else {
                 console.log('DB 연결 안됨');
-                res.status(401).send('<script type="text/javascript">alert("DB가 연결되어 있지 않습니다!"); document.location.href="/user";</script>');
+                res.send('<script type="text/javascript">alert("DB가 연결되어 있지 않습니다!"); document.location.href="/user";</script>');
                 res.end();
                 return;
             }
         } else {
-            res.status(401).send('<script type="text/javascript">alert("비밀번호가 일치하지 않습니다!"); document.location.href="/user";</script>');
+            res.send('<script type="text/javascript">alert("비밀번호가 일치하지 않습니다!"); document.location.href="/user";</script>');
             res.end();
             return;
         }
